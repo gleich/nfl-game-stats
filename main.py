@@ -44,14 +44,25 @@ def categorize(data):
 
 
 def output(data):
+    range_value_total = {}
     rows = [""]
     for range_value in data[1920].keys():
-        rows[0] += f" & \leq {range_value}"
+        rows[0] += f" & $ \leq $ {range_value}"
+        range_value_total[range_value] = 0
+    rows[0] += " & Total"
     for year in data:
         row = f"{year}"
+        difference_total = 0
         for range_value in data[year]:
-            row += f" & {data[year][range_value]}"
+            difference = data[year][range_value]
+            row += f" & {difference}"
+            difference_total += difference
+            range_value_total[range_value] += difference
+        row += f" & {difference_total}"
         rows.append(row)
+    rows.append("Total")
+    for range_value in range_value_total:
+        rows[-1] += f" & {range_value_total[range_value]}"
     print(" \\\\ \\hline\n".join(rows))
 
 
