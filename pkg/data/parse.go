@@ -14,7 +14,6 @@ type Game struct {
 }
 
 func Parse(data [][]string) ([]Game, error) {
-	lumber.Info("Parsing data")
 	games := []Game{}
 	for i, row := range data {
 		if len(row) != 33 {

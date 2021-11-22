@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gleich/lumber/v2"
 	"github.com/gleich/nfl-game-stats/pkg/data"
 )
@@ -18,5 +16,5 @@ func main() {
 		lumber.Fatal(err, "Failed to parse data")
 	}
 
-	fmt.Println(len(games))
+	data.Categorize(games)
 }
