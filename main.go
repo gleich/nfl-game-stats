@@ -8,9 +8,15 @@ import (
 )
 
 func main() {
-	data, err := data.Fetch()
+	rawData, err := data.Fetch()
 	if err != nil {
 		lumber.Fatal(err, "Failed to fetch data")
 	}
-	fmt.Println(data[0])
+
+	games, err := data.Parse(rawData)
+	if err != nil {
+		lumber.Fatal(err, "Failed to parse data")
+	}
+
+	fmt.Println(len(games))
 }

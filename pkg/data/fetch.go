@@ -22,6 +22,6 @@ func Fetch() ([][]string, error) {
 	}
 	records = records[1:]
 
-	lumber.Success("Fetched raw data and parsed it")
+	lumber.Success("Fetched raw data and did basic parse")
 	return records, nil
 }
